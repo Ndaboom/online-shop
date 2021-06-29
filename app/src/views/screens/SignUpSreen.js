@@ -5,12 +5,12 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import COLORS from '../../consts/color';
 import STYLES from '../../styles';
 
-function SignInScreen({navigation}) {
+function SignUpScreen({navigation}) {
     return (
     <SafeAreaView 
     style={{ paddingHorizontal:20,flex:1,backgroundColor:COLORS.white}}>
         <ScrollView showsVerticalScrollIndicator={false}>
-            <View style={{flexDirection:'row', marginTop:50}}>
+        <View style={{flexDirection:'row', marginTop:50}}>
                 <Text style={{fontWeight: 'bold', fontSize:27, color:COLORS.dark}}>MYONLINE</Text>
                 <Text style={{fontWeight: 'bold', fontSize:27, color:COLORS.primary}}>SHOP</Text>
             </View>
@@ -21,13 +21,41 @@ function SignInScreen({navigation}) {
             <View style={{marginTop:20}}>
                 <View style={STYLES.inputContainer}>
                     <Icon 
-                    name="mail-outline"
+                    name="person-outline"
+                    size={20}
+                    color={COLORS.light}
+                    style={STYLES.inputIcon}/>
+                    <TextInput placeholder="Premier Nom" style={STYLES.input}>
+
+                    </TextInput>
+                </View>
+                <View style={STYLES.inputContainer}>
+                    <Icon 
+                    name="person-outline"
+                    size={20}
+                    color={COLORS.light}
+                    style={STYLES.inputIcon}/>
+                    <TextInput placeholder="Deuxieme Nom" style={STYLES.input}>
+
+                    </TextInput>
+                </View>
+                <View style={STYLES.inputContainer}>
+                    <Icon 
+                    name="person-outline"
                     size={20}
                     color={COLORS.light}
                     style={STYLES.inputIcon}/>
                     <TextInput placeholder="Numero de telephone" style={STYLES.input}>
 
                     </TextInput>
+                </View>
+                <View style={STYLES.inputContainer}>
+                    <Icon 
+                    name="person-outline"
+                    size={20}
+                    color={COLORS.light}
+                    style={STYLES.inputIcon}/>
+                    <TextInput placeholder="RCCM" style={STYLES.input}></TextInput>
                 </View>
                 <View style={STYLES.inputContainer}>
                     <Icon 
@@ -42,8 +70,21 @@ function SignInScreen({navigation}) {
 
                     </TextInput>
                 </View>
+                <View style={STYLES.inputContainer}>
+                    <Icon 
+                    name="lock-outline"
+                    size={20}
+                    color={COLORS.light}
+                    style={STYLES.inputIcon}/>
+                    <TextInput 
+                        placeholder="Confirmez le mot passe"
+                        secureTextEntry
+                        style={STYLES.input}>
+
+                    </TextInput>
+                </View>
                 <View style={STYLES.btnPrimary}>
-                    <Text style={{ color:COLORS.white, fontWeight:"bold",fontSize:18}}> Se Connecter</Text>
+                    <Text style={{ color:COLORS.white, fontWeight:"bold",fontSize:18}}> S'inscrire</Text>
                 </View>
                 <View style={{ 
                     marginVertical:20,
@@ -59,14 +100,14 @@ function SignInScreen({navigation}) {
                     justifyContent: 'space-between',
                 }}>
                     <View style={STYLES.btnSecondary}>
-                        <Text style={{fontWeight: 'bold'}}>Connecter avec </Text>
+                        <Text style={{fontWeight: 'bold'}}>S'incrire avec </Text>
                         <Image 
                         style={STYLES.btnImage}
                         source={require('../../assets/facebook.png')}/>
                     </View>
                     <View style={{width: 10}}/>
                     <View style={STYLES.btnSecondary}>
-                        <Text style={{fontWeight: 'bold'}}>Connecter avec </Text>
+                        <Text style={{fontWeight: 'bold'}}>S'inscire avec </Text>
                         <Image 
                         style={STYLES.btnImage}
                         source={require('../../assets/google.png')}/>
@@ -83,10 +124,10 @@ function SignInScreen({navigation}) {
                 }}>
 
             <Text style={{color: COLORS.light, fontWeight:'bold'}}>
-            Vous n'avez pas un compte?
+            Vous avez deja un compte?
             </Text> 
-            <TouchableOpacity onPress={()=>navigation.navigate('SignUp')}>
-                <Text style={{color: COLORS.primary, fontWeight:'bold'}}> S'incrire</Text>
+            <TouchableOpacity onPress={()=>navigation.goBack()}>
+                <Text style={{color: COLORS.primary, fontWeight:'bold'}}> Se connecter</Text>
             </TouchableOpacity>
 
             </View>
@@ -95,4 +136,4 @@ function SignInScreen({navigation}) {
     );
 }
 
-export default SignInScreen;
+export default SignUpScreen;
